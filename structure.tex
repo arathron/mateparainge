@@ -5,7 +5,8 @@
 %
 % Original author:
 % Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
-% Vel (vel@latextemplates.com)
+% Vel (vel@latextemplates.com) and
+% Damián Silvestre (dsilvestre@frba.utn.edu.ar)
 % 
 % This file has been downloaded from:
 % http://www.LaTeXTemplates.com
@@ -22,13 +23,13 @@
 \usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm,headsep=10pt,a4paper]{geometry} % Page margins
 
 \usepackage{graphicx} % Required for including pictures
-\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+%\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
 \usepackage{lipsum} % Inserts dummy text
 
 \usepackage{tikz} % Required for drawing custom shapes
 
-\usepackage[english]{babel} % English language/hyphenation
+\usepackage[spanish, activeacute]{babel} % Spanish language/hyphenation
 
 \usepackage{enumitem} % Customize lists
 \setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
@@ -232,17 +233,20 @@
 \newcounter{dummy} 
 \numberwithin{dummy}{section}
 \theoremstyle{ocrenumbox}
-\newtheorem{theoremeT}[dummy]{Theorem}
-\newtheorem{problem}{Problem}[chapter]
-\newtheorem{exerciseT}{Exercise}[chapter]
+\newtheorem{theoremeT}[dummy]{Teorema}
+\newtheorem{problem}{Problema}[chapter]
+\newtheorem{exerciseT}{Ejercicio}[chapter]
 \theoremstyle{blacknumex}
-\newtheorem{exampleT}{Example}[chapter]
+\newtheorem{exampleT}{Ejemplo}[chapter]
 \theoremstyle{blacknumbox}
-\newtheorem{vocabulary}{Vocabulary}[chapter]
-\newtheorem{definitionT}{Definition}[section]
-\newtheorem{corollaryT}[dummy]{Corollary}
+\newtheorem{vocabulary}{Vocabulario}[chapter]
+\newtheorem{definitionT}{Definición}[section]
+\newtheorem{corollaryT}[dummy]{Corolario}
 \theoremstyle{ocrenum}
-\newtheorem{proposition}[dummy]{Proposition}
+\newtheorem{proposition}[dummy]{Proposición}
+
+\newtheorem{observation}[dummy]{Observación}
+\newtheorem{property}[dummy]{Propiedad}
 
 %----------------------------------------------------------------------------------------
 %	DEFINITION OF COLORED BOXES
