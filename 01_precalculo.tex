@@ -127,7 +127,7 @@ Ejemplo: Está nublado \textbf{si y sólo si} hay nubes visibles.
 \section{Conjuntos}
 
 \begin{definition}[Conjunto] \index{Conjunto}
-Un \textbf{conjunto} es una colección de objetos, tal que si uno tiene un objeto cualquiera, puede determinar si está o no en la colección, o sea si \textbf{pertenece} o no.
+Un \textbf{conjunto} \label{conjunto} es una colección de objetos, tal que si uno tiene un objeto cualquiera, puede determinar si está o no en la colección, o sea si \textbf{pertenece} o no.
 
 Los objetos que pertenecen al conjunto se llaman los \textbf{elementos} del conjunto.
 
@@ -136,13 +136,22 @@ Si $A$ es un conjunto, y $x$ un elemento de $A$, lo denotamos $x \in A$.  Si $y$
 Si $A$ y $B$ son conjuntos, para todo $x \in A$ se tiene que $x \in B$, decimos que $A$ es un \textbf{subconjunto} de $B$  y lo denotamos $A \subseteq B$.  Si $A \subseteq B$ y $B \subseteq A$, los conjuntos $A$ y $B$ tienen los mismos elementos, y decimos que los conjuntos son \textbf{iguales}, es decir $A = B$.
 \end{definition}
 
-\begin{definition}[Cardinal] \index{Conjunto!Cardinal}
-Si un conjunto $A$ tiene una cantidad $n$ de elementos, decimos que su \textbf{cardinal} es $|A| = n$, y que $A$ tiene \textbf{cardinal finito}.
+\begin{example}  
+Algunos ejemplos de conjuntos son
 
-Si no, decimos que $A$ tiene \textbf{cardinal infinito} $|A| = \infty$
+\begin{enumerate} 
+\item $ A = \{ \textrm{casa}, \textrm{arbol}, \textrm{vaca} \} $
+\item $ B = \{ x \in \mathbb{R} : x \leq 23 \} $
+\item $ C = \{ 2 , 4 , 77 \}$
+\item $ D = \{-1, 1\} $
+\end{enumerate}
 
-\end{definition}
+El conjunto $A$ se describió por extensión, mientras que el conjunto $B$ por comprensión.
 
+Si un elemento pertenece a un conjunto se lo denota con $\in$
+
+Siguiendo con el ejemplo: $ \textrm{casa} \in A $, $ 11 \in B$.
+\end{example}
 
 \begin{definition}[Operaciones con conjuntos] \index{Conjunto!Operaciones}
 Sean $A$ y $B$ conjuntos.  
@@ -160,8 +169,22 @@ La \textbf{diferencia} \index{Conjunto!Operaciones!Diferencia} de $A$ con $B$ es
 $$A - B = \{ x \in A / x \not\in B\}$$
 
 Si fijamos un conjunto $U$ como conjunto universal, el \textbf{complemento} \index{Conjunto!Operaciones!Complemento} de cualquier subconjunto $A \subseteq U$ es $U-A$, y lo denotamos por $A^c$
-
 \end{definition}
+
+\begin{example}
+Algunos ejemplos de operaciones entre conjuntos
+
+\begin{itemize}
+\item $ E = A \cup B$
+
+\item $ F = B \cap C = \{2, 4\}$
+
+\item $ B - C = \{ x \in \mathbb{R} : (x \leq 23) \wedge (x \neq 2) \wedge (x \neq 4) \} $
+
+\item Considerando $ D \subseteq B$ tenemos $D^c = \{ x \in \mathbb{R} : x \leq 23 \wedge x \neq -1 \wedge x \neq 1\} = \{ x \in B : x \neq -1 \wedge x \neq 1 \}$
+
+\end{itemize}
+\end{example}
 
 \begin{definition}[Producto Cartesiano] \index{Conjunto!Producto Cartesiano}
 Si $A$ y $B$ son conjuntos, el producto cartesiano de $A$ con $B$ es el conjunto de todos los pares ordenados $(a,b)$ con $a \in A$ y $b \in B$, es decir
@@ -171,15 +194,47 @@ $$ A \times B = \{(a,b) : a \in A, b \in B \}$$
 Dados $(a,b)$ y $(c,d)$ elementos de $A \times B$, se dice que $(a,b) = (c,d)$ si y sólo si $a = c$ y $b = d$.
 \end{definition}
 
+\begin{example}
+Siguiendo con el ejemplo: 
+
+\begin{eqnarray*}A \times D = \{(\textrm{casa},-1), (\textrm{arbol}, -1), (\textrm{vaca},-1), \\ 
+(\textrm{casa},1), (\textrm{arbol},1), (\textrm{vaca},1)\} \end{eqnarray*}
+\end{example}
+
+\begin{definition}[Cardinal] \index{Conjunto!Cardinal}
+Si un conjunto $A$ tiene una cantidad finita de elementos, decimos que es un \textbf{conjunto finito}, y llamamos \textbf{cardinal} a la cantidad de elementos que posee.
+
+Lo denotamos por $|A|$ o por $\# A$.
+
+Si no, decimos que $A$ tiene \textbf{cardinal infinito} $|A| = \infty$
+\end{definition}
+
+\begin{example}
+Siguiendo con nuestros ejemplos
+
+\begin{itemize}
+\item $ |A| = 3$
+\item $ |C \cup D| = 5$
+\item $ |B| = \infty $
+\item $ \# \mathbb{R} = \infty$
+\end{itemize}
+\end{example}
 
 \subsection{Relaciones y Funciones}
 
 \begin{definition}[Relación] \index{Conjunto!Relación}
-
-Dados $A$ y $B$ conjuntos, una \textbf{relación} de $A$ en $B$ es un subconjunto de $A \times B$.
+Dados $A$ y $B$ conjuntos, una \textbf{relación} \label{relacion} de $A$ en $B$ es un subconjunto de $A \times B$.
 
 Sea $R$ una relación.  Si $(a,b) \in R$, también lo denotamos $a R b$.
+\end{definition}
 
+\begin{example}
+Por ejemplo, una relación de $A$ en $D$ podría ser:
+
+$$ R = \{(\textrm{casa},-1), (\textrm{arbol},-1), (\textrm{casa},1) \} $$
+\end{example}
+
+\begin{definition}
 Sea $R$ una relación de $A$ en $A$.  Se dice que es
 
 \begin{itemize}
@@ -191,20 +246,62 @@ Sea $R$ una relación de $A$ en $A$.  Se dice que es
 \item antisimétrica: si $xRy$ y $yRx$ implica que $y=x$.
 
 \item transitiva: si $xRy$ y $yRz$ implica que $xRz$.
-
 \end{itemize}
-
-Una relación reflexiva, simétrica y transitiva se dice que es una \textbf{relación de equivalencia}. \index{Conjunto!Relación!Relación de equivalencia}
-
-Una relación reflexiva, antisimétrica y transitiva se dice que es una \textbf{relación de orden} (o de orden parcial). \index{Conjunto!Relación!Relación de orden}
-
-Un conjunto en el cual se definió un orden se dice que es un \textbf{conjunto ordenado}, y si el orden es total se dice que es un \textbf{conjunto totalmente ordenado}.
-
-En un conjunto ordenado, puede haber elementos no comparables, es decir elementos donde ni $xRy$ ni $yRx$.  Si en un conjunto ordenado todos los elementos son comparables decimos que se trata de un \textbf{orden total} (o lineal).
-
 \end{definition}
 
-\begin{definition}[Máximo, mínimo, cotas, supremo, etc]
+\begin{definition}
+Una relación $R$ de $A$ en sí mismo que es \emph{reflexiva}, \emph{simétrica} y \emph{transitiva}, se dice que es una \textbf{relación de equivalencia}, y se suele denotar $\equiv$.  
+
+Si $R$ es una relación de equivalencia en $A$, dado $x \in A$, el conjunto de los los $y \in A$ tales que $x R y$ se llama la \textbf{clase de equivalencia de $x$}, y se denota
+
+$$[x] = \{y \in A : yRx \}$$
+\end{definition}
+
+\begin{example}
+Por ejemplo, en $\mathbb{Z}$, la relación $xRy$ sii $3 | y-x$ es una relación de equivalencia.  Bajo esta relación de equivalencia se tiene que $5 \equiv 11$, pues $3 | (11-5) = 6$.  Esta relación de equivalencia tiene tres clases de equivalencias 
+
+\begin{eqnarray*}\overline{0} &=& \{0 + 3k : k \in \mathbb{Z} \} \\
+\overline{1} &=& \{1 + 3k : k \in \mathbb{Z} \} \\
+\overline{2} &=& \{2 + 3k : k \in \mathbb{Z} \} \end{eqnarray*}
+
+Uniendo todas las clases de equivalencias, obtenemos el conjunto completo
+
+$$ \mathbb{Z} = \overline{0} \cup \overline{1} \cup \overline{2}$$
+\end{example}
+
+
+\begin{definition}
+Una relación $R$ de $A$ en sí mismo que es \emph{reflexiva}, \emph{antisimétrica} y \emph{transitiva}, se dice que es una \textbf{relación de orden} \label{orden} (parcial), y se suele denotar $\leq$.
+
+Un conjunto con un orden parcial se dice que es un \textbf{conjunto ordenado}.
+\end{definition}
+
+\begin{example}
+Por ejemplo en $\mathbb{Z}$ la relación $xRy$ sii $x | y$ ($x$ divide a $y$) es una relación de orden.
+\end{example}
+
+\begin{definition}
+Si $\leq$ es una relación de orden en $A$, y si $x,y \in A$, entonces decimos que $x$ e $y$ son \textbf{comparables} si se cumple que $x \leq y$ o bien que $y \leq x$.  En caso contrario decimos que $x$ e $y$ son \textbf{no comparables}.
+\end{definition}
+
+\begin{example}
+Por ejemplo, si en $\mathbb{Z}$ tomamos la relación $x \leq y$ sii $ x | y$, entonces $3$ y $5$ son elementos no comparables, pues $3 \not| 5$ y $5 \not| 3$.
+\end{example}
+
+\begin{definition} \label{orden_total}
+Una relación de orden en la que $x \leq y$ o $y \leq x$ para todo $x,y \in A$ se dice que es una relación de \textbf{orden total}.
+
+Es decir que un orden total es una relación de orden en la que todo par de elementos es comparable.
+
+Un conjunto con un orden total se dice que es un \textbf{conjunto totalmente ordenado}
+\end{definition}
+
+\begin{example}
+Por ejemplo, en $\mathbb{R}$ la relación $xRy$ sii $x \leq y$ es una relación de orden total.
+\end{example}
+
+
+\begin{definition}[Máximo, mínimo, cotas, supremo, etc] \label{maximo}
 
 Sea $A$ un conjunto ordenado.  
 
@@ -242,19 +339,38 @@ Una \textbf{función} de $A$ en $B$ es una relación tal que para todo $a \in A$
 
 Se la denota de la forma $f : A \to B$, y si se tiene $(a,b) \in f$, también se escribe $f(a) = b$, y se dice que la imagen de $a$ por $f$ es $b$.
 
-El conjunto $A$ se llama \textbf{dominio} \index{Función!Dominio} y el conjunto $B$ se llama \textbf{codominio} \index{Función!Codominio} de la función.
+\begin{itemize}
+\item El conjunto $A$ se llama \textbf{dominio} \index{Función!Dominio} y el conjunto $B$ se llama \textbf{codominio} \index{Función!Codominio} de la función.
 
-Dado $C \subseteq A$, el conjunto $f(C) = \{b \in B : \exists c \in C, f(c) = b\}$ se llama imagen de $C$ por $f$.  El conjunto $f(A)$ se llama la \textbf{imagen} \index{Función!Imagen} de $f$, y se denota $Im(f)$.  Es decir
+\item Dado $C \subseteq A$, el conjunto $f(C) = \{b \in B : \exists c \in C, f(c) = b\}$ se llama imagen de $C$ por $f$.  El conjunto $f(A)$ se llama la \textbf{imagen} \index{Función!Imagen} de $f$, y se denota $Im(f)$.  Es decir
 
 $$ Im(f) = \{ b \in B : \exists a \in A, f(a) = b \} $$
 
-La \textbf{gráfica} de la función es la relación funcional que las define, es decir
+\item La \textbf{gráfica} de la función es la relación funcional que las define, es decir
 
 $$ Graf(f) = \{ (x,y) \in A \times B : y = f(x) \} $$
 
+\item Si $Y \subseteq B$ llamamos \textbf{preimagen} de $Y$ por $f$ al conjunto
+
+$$ f^{-1}(Y) = \{a \in A : f(a) \in Y \}$$
+\end{itemize}
 \end{definition}
 
+\begin{observation}
+Observamos que en ningún momento en la definición de función se requiere tener una expresión tipo \emph{fórmula} para calcular los elementos de la imagen.
+\end{observation}
 
+\begin{example}
+
+Siguiendo con los mismos conjuntos de los ejemplos anteriores, podemos definir una función
+
+\begin{eqnarray*} f : A &\to& B \\
+f(\textrm{casa}) &=& -1 \\
+f(\textrm{arbol}) &=& 21 \\
+f(\textrm{arbol}) &=& 21 \\
+f(\textrm{vaca}) &=& 12 \end{eqnarray*} 
+
+\end{example}
 
 \section{Conjuntos numéricos}
 

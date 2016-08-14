@@ -14,11 +14,135 @@
 
 \part{Álgebra lineal}
 
-\chapter{Primer capítulo}
+\chapter{Espacios Vectoriales}
 
-\section{Primera sección}
+
+\section{Estructuras algebraicas}
 
 \begin{definition}
-Primer definición
+Un \textbf{grupo} es un conjunto $G$ con una función $\cdot : G \times G \to G$ tal que
+
+\begin{enumerate}
+\item Es asociativa, para todo $a,b,c \in G$ se tiene
+$(a \cdot b) \cdot c = a \cdot (b \cdot g)$
+
+\item Existe elemento neutro $ e \in G$ tal que
+$ e \cdot g = g \cdot e = g$ (para todo $ g \in G$)
+
+\item Existe elemento inverso $ g^{-1} \in G$ para cada $ g \in G$ de forma tal que $ g \cdot g^{-1} = g^{-1} \cdot g = e$
+
+\end{enumerate}
+
+Si además cumple ser \textbf{conmutativa}, es decir que para todo $ a,b \in G$ se tiene $ a \cdot b = b \cdot a$, se dice que es un \textbf{grupo abeliano} o conmutativo y se suele usar la notación aditiva ($+$ para la función, $-a$ para el inverso).
+
+Un \textbf{monoide}, es como la definición de grupo, pero sólo satisface 1. y 2. (no requiere 3, es decir no requiere inversos)
+
+
 \end{definition}
 
+
+\begin{example}
+
+$(\mathbb{Z}, +)$ y $(\mathbb{R} - \{0\}, \cdot)$ son grupos conmutativos.
+
+$(\mathbb{R}^{2 \times 2}, \cdot)$ es un monoide (no conmutativo), donde $ \mathbb{R}^{2 \times 2}$ representa las matrices de $ 2 \times 2$ con coeficientes reales, y $ \cdot$ es la multiplicación de matrices.
+
+\end{example}
+
+
+\begin{definition}
+Un \textbf{anillo} es un conjunto $R$ con dos funciones $ + : R \times R \to R$ y $\cdot : R \times R \to R$, tales que
+
+\begin{enumerate}
+\item $(R,+)$ es grupo conmutativo.
+
+\item $(R,\cdot)$ es un monoide.
+
+\item La multiplicación se distribuye sobre la suma, es decir dados $ a,b,c \in R$ se tiene $a \cdot (b + c) = ab + ac$ y $ (b+c) \cdot a = ba + ca$
+
+\end{enumerate}
+
+Si además resulta que la multiplicación es conmutativa, se dice que es un \textbf{anillo conmutativo}.
+
+\end{definition}
+
+\begin{example}
+
+Algunos ejemplos de anillos
+
+\begin{enumerate}
+
+\item $ (\mathbb{R}^{2 \times 2}, +, \cdot)$ es un anillo no conmutativo.
+
+\item $ (\mathbb{Z}, +, \cdot)$ es un anillo conmutativo.
+
+\end{enumerate}
+\end{example}
+
+\begin{definition}
+
+Un \textbf{cuerpo} es un conjunto $K$ con dos funciones $+ : K \times K \to K$, y $\cdot : K \times K \to K$ tales que $(K, +, \cdot)$ es un anillo conmutativo y además $(K-\{0\}, \cdot)$ es grupo conmutativo.
+
+\end{definition}
+
+\begin{example}
+
+Algunos ejemplos de cuerpos
+
+\begin{itemize}
+
+\item $ (\mathbb{Q}, +, \cdot)$
+\item $ (\mathbb{R}, +, \cdot)$ 
+\item $(\mathbb{C}, +, \cdot)$
+
+\end{itemize}
+
+\end{example}
+
+Observar que $ (\mathbb{Z}, +, \cdot)$ no es un cuerpo, en particular $ 2$ no tiene inverso multiplicativo en $ \mathbb{Z}$.
+
+\begin{definition} 
+
+Un \textbf{espacio vectorial} \label{ev} es un conjunto $V$ y un cuerpo $K$ con una función $+ : V \times V \to V$ y una función $ \cdot : K \times V \to V$ tal que
+
+\begin{enumerate}
+\item $ (V,+)$ es grupo conmutativo.
+\item $ 1 \cdot v = v$ para todo $ v \in V$
+\item $ a(bv) = (ab)v$ para todo $ a,b \in K$ y $ v \in V$
+\item $ k(v+w) = kv + kw$ para todo $ k \in K$ y $ v,w \in V$
+\item $ (k+q)v = kv + qv$ para todo $ k,q \in K$ y $ v \in V$
+\end{enumerate}
+
+\end{definition}
+
+\begin{example}
+$ V = (\mathbb{R}^n, +, \mathbb{R}, \cdot)$ es un espacio vectorial.  Es el principal espacio vectorial con el que trabajamos en esta materia.
+\end{example}
+
+\begin{definition} 
+
+Un \textbf{espacio con producto interno} \label{evpi} es un espacio vectorial $ V$ sobre el cuerpo $ \mathbb{K}$ (que debe ser $ \mathbb{R}$ o $ \mathbb{C}$) y con una función $ \langle - , - \rangle : V \times V \to \mathbb{K}$ tal que para todo $ u, u', v \in V$ y $ \lambda \in \mathbb{K}$ se tiene
+
+\begin{enumerate}
+\item $ \langle u + u', v \rangle = \langle u,v \rangle + \langle u', v \rangle $
+
+\item $ \langle \lambda u, v \rangle = \lambda \langle u,v \rangle $
+
+\item $ \langle u,v \rangle = \overline{ \langle v,u \rangle } $
+
+\item $ \langle v,v \rangle > 0$ si $ v \neq 0$
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+
+En $ \mathbb{R}^n$ podemos definir el producto interno usual como
+
+$$ u \cdot v = \sum_{i=1}^n u_i v_i = u_1 v_1 + u_2 v_2 + \ldots + u_n v_n$$
+
+donde $ u=(u_1, \ldots, u_n)$ y $ v = (v_1, \ldots, v_n) \in \mathbb{R}^n$.
+
+También se lo conoce como producto punto, o producto escalar.
+
+Luego $\mathbb{R}^n$ con el producto $\cdot$ forma un espacio con producto interno.  
+\end{example}
