@@ -1,0 +1,14 @@
+
+Para clonar el proyecto de github al directorio actual:
+git clone https://github.com/arathron/mateparainge .
+
+Para agregar el repositorio de github al proyecto actual:
+git remote add github https://github.com/arathron/mateparainge
+
+
+Para clonar el proyecto de overleaf al directorio actual:
+git clone [Ver url en overleaf] .
+
+Para agregar el repositorio de github al proyecto actual:
+git remote add overleaf [Ver url en overleaf]
+
