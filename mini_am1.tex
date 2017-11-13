@@ -1,0 +1,69 @@
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+%\documentclass[a4paper]{article}
+
+\usepackage{tgheros}
+\usepackage[T1]{fontenc}
+\renewcommand*\familydefault{\sfdefault}
+
+\usepackage{graphicx}
+\usepackage{makeidx}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fancybox, framed}
+\usepackage{enumerate}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+% atajos para conjuntos usuales
+\newcommand\NN{\mathbb{N}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\RR{\mathbb{R}}
+\newcommand\CC{\mathbb{C}}
+\newcommand\FF{\mathbb{F}}
+
+
+%
+% Usando amsthm, es más básico que ntheorem.
+%
+
+% Para las secciones Theorem, Proof, Definition 
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+\newtheorem{property}[theorem]{Propiedad}
+\newtheorem{corollary}[theorem]{Corolario}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{observation}[theorem]{Observación}
+
+\theoremstyle{remark}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{conjecture}[theorem]{Conjetura}
+
+%\newtheorem*{note}{Nota}
+
+
+
+\makeindex
+
+\begin{document}
+
+\title{Análisis Matemático II}
+\author{Damián Silvestre}
+%\date{}
+\maketitle
+
+
+\input{03_analisis1.tex}
+
+\printindex
+
+
+\end{document}
