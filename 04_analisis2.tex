@@ -356,23 +356,27 @@ $$ \cos(\phi) = \frac{\vec{v} \cdot \vec{w}}{||\vec{v}|| \ || \vec{w}||} $$
 
 \section{Entorno}
 
+Recordar la definición de entorno (ver \ref{entorno_real}) en una variable.
+
 \begin{definition}[Entorno]
-Dados $x \in \RR^n$ y $r > 0$ 
+Dados $x_0 \in \RR^n$ y $r > 0$ 
 
 Llamamos \textbf{entorno} \index{Espacio Euclídeo!Entorno} (o entorno abierto) de centro $x_0$ y radio $r$ al conjunto
 
-$$ E(x,r) = \{ y \in \RR^n : d(x,y) < r\} $$
+$$ E(x_0,r) = \{ x \in \RR^n : d(x,x_0) < r\} $$
 
 Llamamos \textbf{entorno cerrado} de centro $x_0$ y radio $r$ al conjunto
 
-$$ E[x,r] = \{ y \in \RR^n : d(x,y) \leq r\} $$
+$$ E[x_0,r] = \{ x \in \RR^n : d(x,x_0) \leq r\} $$
 
-Llamamos \textbf{entorno reducido} de centro $x$ y radio $r$ a 
+Llamamos \textbf{entorno reducido} de centro $x_0$ y radio $r$ a 
 
-$$ E'(x,r) = E(x,r) - \{x\}$$
+$$ E'(x_0,r) = E(x_0,r) - \{x_0\}$$
 \end{definition}
 
 \section{Clasificación topológica de puntos de $\RR^n$}
+
+Recordar la clasificación topológica de puntos en una variable (ver \ref{clasif_topo_puntos_r}).
 
 \begin{definition}[Puntos]
 
@@ -395,7 +399,9 @@ Equivaléntemente, si para todo entorno reducido del punto, $ E'(x,r) \cap A \ne
 \end{itemize}
 \end{definition}
 
-\begin{definition}
+Recordar conjunto interior, clausura y derivado (ver \ref{conjunto_interior_r}) de análisis en una variable.
+
+\begin{definition}[Interior]
 Sea $A \subseteq \RR^n$.  Entonces definimos
 
 El \textbf{interior de $A$} como el conjunto de sus puntos interiores, lo denotamos $A^{\circ}$
@@ -403,7 +409,6 @@ El \textbf{interior de $A$} como el conjunto de sus puntos interiores, lo denota
 La \textbf{clausura de $A$} como el conjunto de sus puntos de clausura, lo denotamos $\overline{A}$
 
 El \textbf{conjunto derivado de $A$} como el conjunto de todos sus puntos de acumulación, lo denotamos $A'$
-
 \end{definition}
 
 \begin{observation}

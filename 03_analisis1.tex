@@ -15,7 +15,69 @@
 \part{Análisis en una variable}
 
 \chapter{Topología en la recta real}
+
+\section{Recta real}
+
+Recordar las propiedades que definen al conjunto de los números reales (ver \ref{numeros_reales}), que también llamaremos recta real por su representación gráfica.
+
+\begin{figure}[h]
+\centering\includegraphics[scale=0.6]{images/03_analisis1/number_line.png}
+\caption{Recta real}
+\end{figure}
+
+\begin{definition}[Entorno] \label{entorno_real}
+Dados $x_0 \in \RR$ y $r > 0$ 
+	
+Llamamos \textbf{entorno} \index{Recta real!Entorno} (o entorno abierto) de centro $x_0$ y radio $r$ al conjunto
+	
+$$ E(x_0,r) = \{ x \in \RR^n : d(x,x_0) < r\} $$
+	
+Llamamos \textbf{entorno cerrado} de centro $x_0$ y radio $r$ al conjunto
+	
+$$ E[x_0,r] = \{ x \in \RR^n : d(x,x_0) \leq r\} $$
+	
+Llamamos \textbf{entorno reducido} de centro $x_0$ y radio $r$ a 
+	
+$$ E'(x_0,r) = E(x_0,r) - \{x_0\}$$
+\end{definition}
+
+
+\begin{definition}[Puntos] \label{clasif_topo_puntos_r}
+	
+Sea $A \subseteq \RR$, y $x \in \RR$, entonces decimos que $x$ respecto de $A$ es 
+	
+\begin{itemize}
+\item \textbf{Punto interior}: Si existe $E(x,\delta) \subseteq A$.
+		
+\item \textbf{Punto exterior}: Si existe $E(x,\delta) \subseteq \RR^n - A$.  Equivalentemente $E(x,\delta) \cap A = \emptyset$.
+		
+\item \textbf{Punto frontera}: Si no es punto interior ni exterior.  Es decir que para todo $ \delta > 0$ se tiene $E(x,\delta) \cap A \neq \emptyset$ y $E(x,\delta) \cap (\RR - A) \neq \emptyset$
+		
+\item \textbf{Punto clausura} (o adherencia): Si existe un entorno tal que $E(x,r) \cap A \neq \emptyset$
+		
+\item \textbf{Punto de acumulación} (o punto límite): Si para todo entorno del punto, $ E(x,r) \cap (A - \{x\}) \neq \emptyset$.
+		
+Equivalentemente, si para todo entorno reducido del punto, $ E'(x,r) \cap A \neq \emptyset$
+		
+\item \textbf{Punto aislado}: Si existe un entorno tal que $E(x,r) \cap A = \{x\}$
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Interior] \label{conjunto_interior_r}
+Sea $A \subseteq \RR$.  Entonces definimos
+	
+El \textbf{interior de $A$} como el conjunto de sus puntos interiores, lo denotamos $A^{\circ}$
+	
+La \textbf{clausura de $A$} como el conjunto de sus puntos de clausura, lo denotamos $\overline{A}$
+	
+El \textbf{conjunto derivado de $A$} como el conjunto de todos sus puntos de acumulación, lo denotamos $A'$
+\end{definition}
+
 \chapter{Límite de funciones reales}
+
+
+
+
 \chapter{Sucesiones reales}
 \chapter{Funciones contínuas}
 \chapter{Funciones diferenciables}

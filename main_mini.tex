@@ -1,6 +1,14 @@
 \documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
 %\documentclass[a4paper]{article}
 
+
+% Para que en cada parte los capítulos vuelvan a contar de cero.
+% Por ahora lo saco porque creo que trae problemas con los hipervínculos label/ref
+%\makeatletter
+%\@addtoreset{chapter}{part}
+%\makeatother
+
+
 \usepackage{tgheros}
 \usepackage[T1]{fontenc}
 \renewcommand*\familydefault{\sfdefault}
@@ -13,6 +21,9 @@
 
 \usepackage{fancybox, framed}
 \usepackage{enumerate}
+
+% para crear hipervínculos con los label/ref
+\usepackage[colorlinks=true,linkcolor=red]{hyperref}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -50,17 +61,18 @@
 %\newtheorem*{note}{Nota}
 
 
-
 \makeindex
 
 \begin{document}
 
-\title{Análisis Matemático II}
+\title{Matemáticas para Ingenieros}
 \author{Damián Silvestre}
 %\date{}
 \maketitle
 
+\input{01_precalculo.tex}
 
+\input{03_analisis1.tex}
 \input{04_analisis2.tex}
 
 \printindex
