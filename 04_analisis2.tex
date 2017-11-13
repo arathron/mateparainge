@@ -238,16 +238,49 @@ Dos familias de curvas $\mathcal{F}_1$ y $\mathcal{F}_2$ se dicen \textbf{famili
 
 Los siguientes gráficos representan familias de curvas ortogonales.
 
-\begin{center}
-\includegraphics[width=5cm]{images/04_analisis2/flias_ortogonales1.png}
-\includegraphics[width=5cm]{images/04_analisis2/flias_ortogonales2.png}
 
-\includegraphics[width=5cm]{images/04_analisis2/flias_ortogonales5.png}
-\includegraphics[width=5cm]{images/04_analisis2/flias_ortogonales4.png}
+\begin{figure*}[t!]
 
-\includegraphics[width=5cm]{images/04_analisis2/flias_ortogonales3.png}
-\includegraphics[width=5cm]{images/04_analisis2/flias_ortogonales6.png}
-\end{center}
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.4,trim={1px 9876px 670px 20px},clip]{images/04_analisis2/am2.png}
+\caption{Flía 1}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.4,trim={358px 9876px 267px 24px},clip]{images/04_analisis2/am2.png}
+\caption{Flía 2}
+\end{subfigure}
+
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.5,trim={744px 9900px 5px 24px},clip]{images/04_analisis2/am2.png}
+\caption{Flía 3}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.5,trim={10px 9612px 704px 352px},clip]{images/04_analisis2/am2.png}
+\caption{Flía 4}
+\end{subfigure}
+
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.5,trim={386px 9612px 378px 348px},clip]{images/04_analisis2/am2.png}
+\caption{Flía 5}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.5,trim={732px 9612px 66px 374px},clip]{images/04_analisis2/am2.png}
+\caption{Flía 6}
+\end{subfigure}
+
+
+\caption{Familias ortogonales}
+\end{figure*}
 
 \begin{proposition}
 
@@ -710,16 +743,28 @@ Similarmente, es fácil ver que $f_x$ es contínua para todo $y$ ($x$ fijado)
 
 Sin embargo $f$ no es contínua, ya que en el origen $f(0,0) = 0$, pero $\lim_{n \to \infty} f(\frac{1}{n}, \frac{1}{n}) = 1 \neq 0$
 
-A continuación se muestra la gráfica de $f$ en el cuadrado $[0,1] \times [0,1]$ (fuera de allí la función vale 0).
-
-\begin{center}
-\includegraphics[width=5cm]{images/04_analisis2/func_discontinua1.png}
-
-\includegraphics[width=5cm]{images/04_analisis2/func_discontinua2.png}
-\end{center}
+En la figura \ref{fig:discont} se muestra la gráfica de $f$ en el cuadrado $[0,1] \times [0,1]$ (fuera de allí la función vale 0).
 
 Se ve que al analizar la continuidad en el origen por los ejes $x$ e $y$ el límite existe y da cero, mientras que por la semirecta $y=x$ con $x >0$ el límite da 1.
 \end{proof}
+
+\begin{figure*}[t!]
+\centering
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.4,trim={54px 9132px 462px 643px},clip]{images/04_analisis2/am2.png}
+\caption{Vista 1}
+\end{subfigure}%
+~
+\begin{subfigure}[t]{0.5\textwidth}
+\centering
+\includegraphics[scale=0.4,trim={566px 9132px 68px 614px},clip]{images/04_analisis2/am2.png}
+\caption{Vista 2}
+\end{subfigure}
+	
+\caption{Función discontinua} \label{fig:discont}
+\end{figure*}
+
 
 Y ojo también con esto:
 
