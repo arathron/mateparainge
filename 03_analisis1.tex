@@ -75,10 +75,29 @@ El \textbf{conjunto derivado de $A$} como el conjunto de todos sus puntos de acu
 
 \chapter{Límite de funciones reales}
 
+\begin{definition}[Límite] \label{limite_r}
+Sea $f : A \subset \RR \to \RR$, $ a \in A'$, y $L \in \RR$.  Se dice que el \textbf{límite de $f$ cuando $x$ tiende a $a$} \index{Continuidad!Límite} es $L$ si se cumple cualquiera que:
+
+Para todo $\epsilon > 0$ existe $\delta > 0$ tal que si $x \in A$, $0 < |x-a| < \delta$ entonces $|f(x) - L| < \epsilon$
+
+y en ese caso escribimos
+
+$$ \displaystyle \lim_{x \to a} f(x) = L $$
+\end{definition}
+
+\enazul{Escribir sobre límites laterales, propiedades de límites, infinitésimos equivalentes}
+
+\begin{theorem}[Cero por acotada] \label{cero_por_acotada}
+Sean $f,g:A \subseteq \RR \to \RR$, $a \in A'$.
+
+Si $f$ es infinitésimo en $a$ (es decir $ \lim_{x \to a} f(x) = 0$), y $g$ es acotada (es decir $g(A)$ un conjunto acotado) entonces
+
+$$ \lim_{x \to a} f(x)g(x) = 0 $$
+\end{theorem}
 
 
 
-\chapter{Sucesiones reales}
+
 \chapter{Funciones contínuas}
 \chapter{Funciones diferenciables}
 \chapter{Aproximación de funciones por polinomios}

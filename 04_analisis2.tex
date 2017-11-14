@@ -639,8 +639,10 @@ $$ C^+(f) = f^{-1}((0,+\infty)) = \{x \in A : f(x) > 0 \} $$
 
 Nos basamos en \textcite{libro:1} para definir los conceptos de límite y continuidad.
 
+Recordar la definición de límite en una variable (ver \ref{limite_r}).
+
 \begin{definition}[Límite]
-Sea $f : A \subset \RR^n \to \RR^m$, $ a \in A'$, y $L \in \RR^n$.  Se dice que existe el \textbf{límite de $f$ cuando $x$ tiende a $a$} \index{Continuidad!Límite} es $L$ si se cumple cualquiera de las siguientes afirmaciones equivalentes
+Sea $f : A \subset \RR^n \to \RR^m$, $ a \in A'$, y $L \in \RR^n$.  Se dice que el \textbf{límite de $f$ cuando $x$ tiende a $a$} \index{Continuidad!Límite} es $L$ si se cumple cualquiera de las siguientes afirmaciones equivalentes
 
 \begin{enumerate} 
 
@@ -654,12 +656,10 @@ Sea $f : A \subset \RR^n \to \RR^m$, $ a \in A'$, y $L \in \RR^n$.  Se dice que 
 
 \end{enumerate}
 
-y en ese caso lo denotamos escribiendo
+y en ese caso escribimos
 
 $$ \displaystyle \lim_{x \to a} f(x) = L $$
-
 \end{definition}
-
 
 \begin{definition}[Continuidad]
 Sea $ f: A \subset \RR^n \to \RR^m$, y sea $a \in A$.  Se dice que $f$ es \textbf{contínua en $a$} \index{Continuidad} si se cumple cualquiera de las siguientes afirmaciones equivalentes
@@ -931,13 +931,15 @@ Como $L_{yx} \neq L_{xy}$ no existe el límite pedido.
 
 \section{Como probar que un límite existe}
 
-Una forma que funciona a veces es utilizar el siguiente teorema, familiar desde Análisis 1
+Para probar que un límite existe frecuéntemente es útil el siguiente teorema familiar de análisis en una variable (ver \ref{cero_por_acotada}).
 
-\begin{proposition}
-Sean $f,g,h:A \subseteq \RR^n \to \RR$, y $a \in A'$.
+\begin{theorem}[Cero por acotada]
+Sean $f,g:A \subseteq \RR^n \to \RR$, $a \in A'$.
 
-Si $h = f \cdot g$ con $f$ acotada, es decir $f(A)$ un conjunto acotado, y $g$ infinitésimo, es decir $ \lim_{x \to a} g(x) = 0$ entonces el límite de $h$ cuando $x \to a$ existe y es cero, es decir $ \lim_{x \to a} h(x) = 0$
-\end{proposition}
+Si $f$ es infinitésimo en $a$ (es decir $ \lim_{x \to a} f(x) = 0$), y $g$ es acotada (es decir $g(A)$ un conjunto acotado) entonces
+
+$$ \lim_{x \to a} f(x)g(x) = 0 $$
+\end{theorem}
 
 Otra técnica que puede servir es la de relizar un cambio de varibles que reduzca la cantidad de variables.  Por ejemplo, si $f(x,y) = \frac{\sin(x^2 + y^2)}{x^2 + y^2}$, entonces el $ \lim_{(x,y) \to (0,0) } f(x,y) = 0$, pues realizando la sustitución $ u = x^2 + y^2$ se tiene que cuando $(x,y) \to (0,0)$ entonces $u \to 0$ (pues $x^2 + y^2$ es contínua), y por lo tanto el límite pedido equivale a $ \lim_{u \to 0} \frac{\sin(u)}{u} = 1$
 

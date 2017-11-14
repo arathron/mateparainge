@@ -8,6 +8,10 @@
 %\@addtoreset{chapter}{part}
 %\makeatother
 
+% Para la bibliografía con biber
+\usepackage[backend=biber, style=authoryear-icomp, sortlocale=en_EN, natbib=true, url=false, doi=true, eprint=false]{biblatex}
+\addbibresource{bibliography.bib}
+
 \usepackage{tgheros}
 \usepackage[T1]{fontenc}
 \renewcommand*\familydefault{\sfdefault}
@@ -37,6 +41,10 @@
 \newcommand\CC{\mathbb{C}}
 \newcommand\FF{\mathbb{F}}
 
+% Para escribir comentarios en color azul (a diferencia de \textcolor permite varios párrafos)
+\newcommand{\enazul}[1]{{\color{blue}[#1]}}
+% y en rojo
+\newcommand{\enrojo}[1]{{\color{red}[#1]}}
 
 %
 % Usando amsthm, es más básico que ntheorem.
@@ -79,8 +87,11 @@
 
 \printindex
 
-\bibliographystyle{alpha}
-\bibliography{bibliography}
+% con biber no se usa esto
+%\bibliographystyle{alpha}
+%\bibliography{bibliography}
+% en cambio, se usa esto
+\printbibliography[type=book]
 
 
 \end{document}
