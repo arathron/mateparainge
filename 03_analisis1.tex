@@ -14,7 +14,7 @@
 
 \part{Análisis en una variable}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Topología en la recta real}
 
 \section{Recta real}
@@ -74,7 +74,7 @@ La \textbf{clausura de $A$} como el conjunto de sus puntos de clausura, lo denot
 El \textbf{conjunto derivado de $A$} como el conjunto de todos sus puntos de acumulación, lo denotamos $A'$
 \end{definition}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Límite de funciones reales}
 
 \begin{definition}[Límite] \label{limite_r}
@@ -98,10 +98,16 @@ $$ \lim_{x \to a} f(x)g(x) = 0 $$
 \end{theorem}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Funciones contínuas}
 
+Recordar la definición de intervalo de números reales (ver \ref{intervalo}).
+
+\enrojo{Definir compacto, conexo, 
+demostrar que compacto de R equivale a cerrado y acotado,
+demostrar que continuas mandan compactos en compactos y conexos en conexos.  
+Demostrar que intervalo equivale a conexo.
+}
 
 \begin{theorem}[Bolzano]
 Sea $f : A \to \RR$ contínua en $[a,b] \subseteq A$, con $f(a) f(b) < 0$ (es decir tal que $f(a)$ y $f(b)$ tienen signo opuesto).
@@ -109,30 +115,36 @@ Sea $f : A \to \RR$ contínua en $[a,b] \subseteq A$, con $f(a) f(b) < 0$ (es de
 Entonces existe $c \in [a,b]$ tal que $f(c) = 0$ (es decir existe una raíz)
 \end{theorem}
 
+\begin{proof}
+Como $[a,b] \subseteq \RR$ es cerrado y acotado, es compacto.  Como $f$ es contínua, $f([a,b])$ es compacto.
+
+Como $[a,b]$ es un intervalo, es conexo.  Como $f$ es contínua, $f([a,b])$ es conexo, es decir es un intervalo.
+
+Luego $f([a,b])$ es un intervalo compacto, es decir cerrado y acotado.
+
+Como es un intervalo, y como $f(a), f(b) \in f([a,b])$, para todo $d$ entre $f(a)$ y $f(b)$ se tiene que $d \in f([a,b])$.  En particular como $f(a)$, $f(b)$ tienen signo opuesto, uno de esos $d$ es el $0$.
+
+En otras palabras, existe $c \in [a,b]$ tal que $f(c) = 0$. 
+\end{proof}
 
 
 
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Funciones diferenciables}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Aproximación de funciones por polinomios}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\chapter{Integral indefinida}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Cálculo integral}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Relaciones entre el cálculo diferencial e integral}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Sucesiones, series numéricas y funcionales}
 
 
