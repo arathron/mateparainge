@@ -1205,12 +1205,13 @@ Por lo tanto los puntos $ X_1$ y $X_2$ son regulares, y los puntos $ X_0$ y $X_3
 
 \chapter{Diferenciabilidad}
 
-En Análisis 1, si una función era derivable en un punto, entonces también era contínua en él.
+En Cálculo de una variable, si una función es derivable en un punto (ver \ref{derivada}), entonces también es contínua en él (ver \ref{deriv_impl_cont}).
 
-En Análisis 2, nuestra definición de función derivable en un punto, para funciones de más de una variable, es tal que puede ser derivable en un punto (en toda dirección y sentido), y aún así no ser contínua en él. 
+En Cálculo de varias variables, tenemos una nueva definición de función derivable en un punto, pero es tal que puede ser derivable en toda dirección, y aún así no ser contínua en ese punto.
 
-Hay muchos ejemplos donde esto ocurre, veamos uno sencillo:
+Hay muchos ejemplos donde esto ocurre, por ejemplo el siguiente:
 
+\begin{example}
 Dada $f(x,y) = \begin{cases} x^2/y & y \neq 0 \\ 0 & y=0 \end{cases}$, veamos si es derivable en $(0,0)$.  Sea $v = (a,b)$, luego
 
 $$ \lim_{h \to 0} \frac{f((0,0) + h(a,b)) - f(0,0)}{h} $$
@@ -1234,60 +1235,40 @@ Pero esta función no es contínua en $(0,0)$ pues $f(0,0) = 0$, pero si nos res
 $$ \lim_{ x \to 0 \ y=x^2 } f(x,y) = \lim_{x \to 0} \frac{x^2}{x^2} = 1 \neq 0$$
 
 Por lo tanto la función no es contínua en $(0,0)$.
+\end{example}
 
-La idea de esta sección es generalizar la idea de derivada de Análisis 1 en un nuevo concepto que vamos a llamar diferenciabilidad, de forma tal que este nuevo concepto implique continuidad, así como lo hacía el concepto de derivabilidad en una variable.
+La idea de esta sección es generalizar la idea de derivada de Cálculo en una variable, en un nuevo concepto que vamos a llamar diferenciabilidad, de forma tal que este nuevo concepto implique continuidad, así como lo hacía el concepto de derivabilidad en una variable.
 
-Primero recordemos la definición de función derivable en un punto de Análisis 1.
-
-\begin{definition}
-Una función escalar $ f : A \subset \RR \to \RR$ es derivable en $ x_0 \in A^{\circ}$ si existe el siguiente límite
-
-$$ f'(x_0) = \lim_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} $$
-\end{definition}
-
-Pero esto equivale a pedir
+Primero notemos que en Cálculo de una variable, la definición de función derivable en un punto (ver \ref{derivada}), es equivalente a pedir que
 
 $$ \lim_{h \to 0} \frac{f(x_0 + h) - f(x_0) - h f'(x_0)}{h} = 0 $$
 
-O sea es derivable sii existe una función escalar $ \mu : A \to \RR$ tal que
+O sea $f$ es derivable en $x_0$ sii 
 
-$$ f(x_0 + h) - f(x_0) - f'(x_0) h = h \mu(h) $$
+$$ \lim_{h \to 0} \frac{ f(x_0 + h) - f(x_0) - f'(x_0) h }{ h } = 0 $$
 
-con 
+Por otro lado, la expresión $ f'(x_0) h$ es una transformación lineal $T : \RR \to \RR$, $T(h) = f'(x_0) h$.
 
-$$ \lim_{h \to 0} \mu(h) = 0$$
+Por lo tanto podemos decir que $f$ es derivable sii existe una transformación lineal $T : \RR \to \RR$ tal que
 
-Por otro lado, la expresión $ f'(x_0) h$ es una transformación lineal $T : \RR \to \RR$, $h \to T(h)$.
-
-Por lo tanto podemos decir que $f$ es derivable sii existe una transformación lineal $T : \RR \to \RR$ y un campo escalar $ \mu : A \to \RR$ tales que
-
-$$ f(x_0 + h) - f(x_0) = T(h) + h \mu(h)$$
-
-con 
-
-$$ \lim_{h \to 0} \mu(h) = 0$$
+$$ \lim_{h \to 0} \frac{ f(x_0 + h) - f(x_0) - T(h) }{ h } = 0 $$
 
 Ahora sí estamos en condiciones de definir función diferenciable en un punto:
 
 \section{Definición de función diferenciable}
 
 \begin{definition}[Diferenciabilidad]
-Un campo vectorial $ f : A \subseteq \RR^n \to \RR^m$ se dice que es una \textbf{función diferenciable en $ x_0 \in A^{\circ} $} \index{Diferenciabilidad} si existe una transformación lineal $ T : \RR^n \to \RR^m$ y un campo vectorial $ \mu : B(x_0, \delta) \cap A \to \RR^m$ tales que
+Un campo vectorial $ f : A \subseteq \RR^n \to \RR^m$ se dice que es una \textbf{función diferenciable en $ x_0 \in A^{\circ} $} \index{Diferenciabilidad} si existe una transformación lineal $ T : \RR^n \to \RR^m$ tal que
 
-$$ f(x_0 + h) - f(x_0) = T(h) + ||h|| \mu(h) $$
 
-con 
+$$  \lim_{h \to 0} \frac{ f(x_0 + h) - f(x_0) - T(h) }{ ||h|| } = 0 $$
 
-$$  \lim_{h \to 0} \mu(h) = 0 $$
-
-A la transformación lineal asociada $T$ la llamamos el \textbf{diferencial de $f$ en $x_0$}.
-
+A la transformación lineal $T$ la llamamos el \textbf{diferencial de $f$ en $x_0$}, y denotamos $Df(x_0)$
 \end{definition}
+
 Esta definición tiene concecuencias importantes.  Veremos algunas de ellas en las siguientes secciones.
 
-\section{Diferenciabilidad implica Derivabilidad}
-
-\begin{theorem} \label{difderiv}
+\begin{theorem}[Dif impl. deriv] \label{dif_impl_deriv}
 Sea el campo vectorial $ f : A \subset \RR^n \to \RR^m$ diferenciable en $ x_0 $, entonces $f$ es derivable en $x_0$, y además las derivadas valen 
 
 $$ f'(x_0, \hat{v}) = D f(x_0) \cdot \hat{v}$$
@@ -1335,10 +1316,12 @@ $$ [T] = \begin{pmatrix} f'_{1, e_1} & f'_{1, e_2} & \ldots & f'_{1, e_n} \\ f'_
 Al diferencial $T$ de $f$ en $x_0$ lo vamos a denotar también $df$.  Y a la matriz $[T]$ asociada al diferencial la vamos a llamar la \textbf{matriz jacobiana de $f$ en $x_0$}, \index{Diferenciabilidad!Matriz Jacobiana} y la denotamos $Df(x_0)$.
 \end{definition}
 
-\section{Diferenciabilidad implica Continuidad}
+El siguiente teorema generaliza el de Cálculo en una variable que dice que una función derivable en un punto es contínua en ese punto (ver \ref{deriv_impl_cont}).
 
-\begin{theorem}
-Sea el campo vectorial $ f : A \subset \RR^n \to \RR^m$ diferenciable en $ x_0 \in A^{\circ}$, entonces $f$ es contínuo en $x_0$.
+\begin{theorem}[Dif impl. cont] \ref{dif_impl_cont}
+Sea $ f : A \subset \RR^n \to \RR^m$ diferenciable en $x_0 \in A^{\circ}$.
+
+Entonces $f$ es contínua en $x_0$.
 \end{theorem}
 
 \begin{proof}
@@ -1363,26 +1346,19 @@ $$ \lim_{x \to x_0} f(x) = f(x_0) $$
 lo cual nos dice que el límite existe y es igual al valor de la función en el punto, o sea que $f$ es contínua en $x_0$.
 \end{proof}
 
-\section{Gradiente}
-
 \begin{definition}[Gradiente]
 Sea el campo escalar $ f : A \subset \RR^n \to \RR^m$, y $x_0 \in A^{\circ}$, si existen las derivadas parciales de $f$ en $x_0$, definimos el \textbf{vector gradiente $\nabla f(x_0)$ de $f$ en $x_0$} \index{Diferenciabilidad!Gradiente} como el vector cuyas coordenadas son las derivadas parciales de $f$ en $x_0$, es decir como
 
 $$ \nabla f(x_0) = (f'_{e_1}(x_0), f'_{e_2}(x_0), \ldots, f'_{e_n}(x_0) ) $$
-
 \end{definition}
 
 \begin{observation} \label{graderiv}
-
-Sea el campo escalar $ f : A \subset \RR^n \to \RR^m$, diferenciable en $x_0 \in A^{\circ}$, y sea $v \in \RR^n$. El teorema \ref{difderiv} nos dice en este caso que
+Sea el campo escalar $ f : A \subset \RR^n \to \RR^m$, diferenciable en $x_0 \in A^{\circ}$, y sea $v \in \RR^n$. El teorema \ref{dif_impl_deriv} nos dice en este caso que
 
 $$ f'_v(x_0) = \nabla f(x_0) \cdot v $$
-
 \end{observation}
 
-\section{El gradiente es normal al conjunto de nivel}
-
-\begin{observation}
+\begin{observation}[Grad. normal Cjto nivel]
 Sea el campo escalar $ f : A \subset \RR^n \to \RR$ diferenciable en $x_0 \in A^{\circ}$, y sea $ k \in \RR$, entonces $ \nabla f(x_0)$ es perpendicular al conjunto de nivel $k$ de $f$.
 \end{observation}
 
@@ -1398,7 +1374,7 @@ Entonces podemos componer $g$ con $f$ y obtenemos
 
 $$ f(g(t)) = k $$
 
-Aplicando el teorema \ref{regla_cadena} (la regla de la cadena, que vamos a ver después) se tiene
+Aplicando el teorema \ref{regla_cadena_matricial} (la regla de la cadena, que vamos a ver después) se tiene
 
 $$ \nabla f(g(t)) \cdot g'(t) = 0 $$
 
@@ -1408,9 +1384,7 @@ Pero $ g'(t_0)$ es un vector director de la recta tangente una curva que está i
 
 \end{proof}
 
-\section{Direcciones de derivada máxima, mínima y nula}
-
-\begin{proposition}
+\begin{proposition}[Deriv. max, min, nula]
 Sea $ f : A \subset \RR^n \to \RR$ es diferenciable en $ x_0 $ y $\nabla f(x_0) \neq 0$.  Entonces:
 
 \begin{itemize}
@@ -1424,7 +1398,6 @@ Sea $ f : A \subset \RR^n \to \RR$ es diferenciable en $ x_0 $ y $\nabla f(x_0) 
 \end{proposition}
 
 \begin{proof}
-
 Como $f$ es diferenciable en $x_0$, por la observación \ref{graderiv} sabemos que $f$ es derivable en $x_0$ y
 
 $$ f'_v(x_0) = \nabla f(x_0) \cdot v $$
@@ -1454,9 +1427,7 @@ y
 $$ v_{nul_2} = - v_{nul_1} $$
 \end{proof}
 
-\section{$C^1$ implica diferenciable}
-
-\begin{theorem}
+\begin{theorem}[$C^1$ impl dif]
 Sea el campo escalar $ f : A \subset \RR^n \to \RR^m$ con $A$ abierto.
 Si $ f \in C^1$, entonces $f$ es diferenciable en todo $x \in A$.
 \end{theorem}
@@ -1489,21 +1460,21 @@ Notar que esta definición es un poco más general que la definición \ref{funci
 
 Al mismo tiempo es más particular que aquella definición, pues la primera se refiere funciones entre conjuntos en general, mientras que la segunda es entre subconjuntos de $\RR^n$.
 
-\section{Regla de la Cadena}
+El siguiente teorema es una generalización directa de la regla de la cadena (ver \ref{regla_cadena}) de Cálculo en una variable.
 
-\begin{theorem}[Regla de la cadena] \label{regla_cadena} \index{Diferenciabilidad!Regla de la cadena}
-Sean $ f : A \subset \RR^n \to \RR^m$ diferenciable en $x_0 \in A^{\circ}$, y $ g : B \subset \RR^m \to \RR^p$ diferenciable en $y_0 = f(x_0) \in B^{\circ}$, tales que $f(A) \subseteq B$
+\begin{theorem}[Regla de la cadena] \label{regla_cadena_matricial} \index{Diferenciabilidad!Regla de la cadena}
+Sean
 
-Entonces la función compuesta $h : A \to \RR^p$ es diferenciable en $x_0$, y además el diferencial de $h$ en $x_0$ es igual a la composición de los diferenciales de $f$ en $x_0$ con el de $g$ en $y_0$, de la siguiente manera
+$ f : A \subset \RR^n \to \RR^m$ diferenciable en $x_0 \in A^{\circ}$
 
-$$ dh(x_0) = dg(y_0) \circ df(x_0) $$
+$ g : B \subset \RR^m \to \RR^p$ diferenciable en $y_0 = f(x_0) \in B^{\circ}$
 
-O lo mismo expresado matricialmente, la matriz jacobiana de la compuesta es igual al producto de las matrices jacobianas de la siguiente manera
+tales que $f(A) \subseteq B$
+
+Entonces la función compuesta $h : A \to \RR^p$ es diferenciable en $x_0$, y además 
 
 $$ Dh(x_0) = Dg(y_0) \cdot Df(x_0) $$
 \end{theorem}
-
-\section{Función definida implícitamente}
 
 \begin{definition}
 Dada una función $F : A \subseteq \RR^{n+1} \to \RR$, decimos que la ecuación $F(x_1, x_2, \ldots, x_n, y) = 0$ \textbf{define implícitamente a $y$ como función de $x_1, \ldots, x_n$ en $B$} si existe una función $ f : B \subseteq \RR^n \to \RR$ tal que $F(x_1, \ldots, x_n, f(x_1, \ldots, x_n)) = 0$, para $B \subseteq A_y$ donde $A_y$ es la proyección de $A$ sobre $x_1, \ldots, x_n$
@@ -1517,9 +1488,7 @@ Sea $D_2 = \{ (x,y) \in \RR^2 : x^2 + y^2 \leq 1 \}$. Como existe $f : D_2 \subs
 
 Notar que globálmente la relación entre $x,y$ y $z$ no es funcional, pues por ejemplo tanto el $(0,0,1)$ como el $(0,0,-1)$ satisfacen la ecuación, pero $f(0,0)$ debe tener una única imagen.  En particular, la función definida implícitamente no tiene porqué ser única, otra función definida implícitamente por la misma ecuación es $g : D_2 \to \RR^2$, $g(x,y) = - \sqrt{1 - x^2 - y^2}$
 
-\section{Teorema de Cauchy-Dini}
-
-\begin{theorem}{Teorema de Cauchy-Dini} \label{cauchy_dini} \index{Diferenciabilidad!Teo. Cauchy-Dini}
+\begin{theorem}[Cauchy-Dini] \label{cauchy_dini} \index{Diferenciabilidad!Teo. Cauchy-Dini}
 Sea $F : A \subseteq \RR^{n+1} \to \RR$ con $A$ abierto y $F \in C^1$, y sea la ecuación $F(x_1, \ldots, x_n, y) = 0$.
 
 Sea además $P=(a_1, \ldots, a_n, y_0) \in A$, tal que $F(P) = 0$, y $ F'_y(P) \neq 0$.  
@@ -1642,8 +1611,6 @@ $ f(x_0)$ es \textbf{mínimo relativo de $f$ relativo a $x_0$} si $ f(x) \geq f(
 Todos los extremos se definieron en \textbf{sentido amplio}. La definición en \textbf{sentido estricto} es análoga pero cambiando $\leq$ por $<$ y $\geq$ por $>$, y analizando $A - \{x_0\}$ para extremos absolutos, y $( A - \{x_0\} ) \cap E(x_0, \delta)$ para extremos relativos.
 \end{observation}
 
-\subsection{Criterio de la derivada primera}
-
 Antes de enunciar el criterio, vamos a necesitar esta
 
 \begin{definition}[Punto crítico/silla] \label{punto_critico_silla}
@@ -1691,8 +1658,6 @@ $$ \nabla f(x_0) \cdot v = f'_v(x_0) = 0 $$
 
 En particular tomando $v$ un versor \emph{canónico} de $\RR^n$ vemos que todas las derivadas parciales son nulas, y por lo tanto $ \nabla f(x_0) = 0$ como queríamos probar.
 \end{proof}
-
-\subsection{Criterio de la derivada segunda}
 
 Antes de enunciar el criterio de la derivada segunda nos va a ser útil la siguiente
 
@@ -1905,11 +1870,9 @@ Como $ H_3 = -2 < 0$ hay mínimo relativo $ f(0,0) = 0$
 
 \chapter{Integral de Línea y Función Potencial}
 
-\section{Integral de Riemann}
-
 Recordemos la definición de la integral de Riemann
 
-\begin{definition}[Integrable]
+\begin{definition}[Riemann integrable]
 Sea $[a,b] \in \RR$ un intervalo compacto, y sea $ P = \{a = x_0 < x_1 < \ldots < x_n = b\}$ una partición de $ [a,b]$.  Sea $f$ una función acotada en $ [a,b]$.  
 
 Notamos 
@@ -1937,8 +1900,6 @@ donde el ínfimo y el supremo se calcula sobre todas las particiones posibles.
 Si son iguales, se nota $ \int_a^b f dx$ y se dice que $f$ es Riemann-integrable en $[a,b]$, y lo denotamos $f \in R$
 \end{definition}
 
-\section{Curva regular a trozos, curva de jordan}
-
 \begin{definition}[Jordan]
 Una curva $C \in \RR^n$ decimos que es \textbf{regular a trozos} si puede escribirse como $\displaystyle C = \cup_{i=1}^k C_i$ donde cada $C_i$ es una curva regular, y el extremo final de una coincide con el inicial de la siguiente.
 
@@ -1950,8 +1911,6 @@ Una curva $C$ es \textbf{cerrada} \index{Curva!Cerrada} si admite una parametriz
 
 Una curva $C$ se dice cerrada simple, o \textbf{curva de Jordan}, \index{Curva!de Jordan} si admite una parametrización $ g:[a,b] \to \RR^n$ tal que es inyectiva en $ [a,b)$ y $ g(a) = g(b)$
 \end{definition}
-
-\section{Integral de línea}
 
 \begin{definition}[Integral de línea] \index{Integral de línea}
 Dada una curva $C \in \RR^n$ con parametrización $ g:[a,b] \to \RR^n$, y dado un campo escalar $f : A \subseteq \RR^n \to \RR$ contínuo, tal que $C \in A^{\circ}$, definimos el diferencial de curva escalar como
@@ -1997,8 +1956,6 @@ Por ejemplo $f(x,y) = (-y, x)$ no es conservativo.  Si lo fuera, como $f \in C^1
 \end{example}
 
 Es fácil construir ejemplos de campos conservativos, símplemente elegimos un campo escalar $ \phi \in C^2$, y su gradiente es un campo conservativo.  Por ejemplo si $\phi(x,y) = x^2 + y^2$ entonces se tiene que $\nabla \phi(x,y) = f(x,y) = (2x, 2y)$ es un campo conservativo, cuya función potencial es $\phi$.
-
-\section{Teorema de la independencia del camino}
 
 \begin{theorem}[Independencia camino] \index{Integral de línea!Campo conservativo!Teo. ind. camino}
 Sea el campo vectorial conservativo $f : A \subset \RR^n \to \RR^n$, y sea $ \phi : A \subset \RR^n \to \RR$ su función potencial. 
@@ -2050,8 +2007,6 @@ Como $C$ es cerrada $ g(a) = g(b)$, y como $f$ es conservativo se tiene
 $$ \int_C f \cdot dc = \phi(g(b)) - \phi(g(a)) = \phi(g(a)) - \phi(g(a)) = 0$$ 
 \end{proof}
 
-\section{Condición necesaria para la existencia de función potencial}
-
 \begin{theorem}[Necesaria] \label{necesaria_potencial} \index{Integral de línea!Campo conservativo!Cond. necesaria}
 Sea $f : A \subset \RR^n \to \RR^n$ conservativo con $ f \in C^1$, entonces su matriz jacobiana $Df$ es contínua y simétrica.
 \end{theorem}
@@ -2068,9 +2023,7 @@ Luego la matriz jacobiana de $f$ debe ser la matriz hessiana de $\phi$.
 Luego por la observación \ref{hessiana_simetrica}, la matriz jacobiana de $f$ debe ser simétrica.
 \end{proof}
 
-\section{Condición de suficiencia para la existencia de función potencial}
-
-\begin{theorem} \label{suficiente_potencial} \index{Integral de línea!Campo conservativo!Cond. suficiente}
+\begin{theorem}[Suficiente] \label{suficiente_potencial} \index{Integral de línea!Campo conservativo!Cond. suficiente}
 Sea $ f : A \subset \RR^n \to \RR^n$ tal que cumple la condición necesaria para que exista función potencial (es decir tiene $Df$ contínua y simétrica).  Si además $ A$ es \emph{símplemente conexo}, entonces $f$ es conservativo.
 \end{theorem}
 
@@ -2204,8 +2157,6 @@ Esta región $R$ es una región elemental tipo I.
 Como todas las funciones que definen una región elemental $R$ son contínuas en un compacto, resultan ser acotadas, por lo tanto $R$ es un conjunto acotado, y como $R$ es cerrado, resulta que además $R$ es compacto.
 \end{observation}
 
-\section{Teorema de Fubini en $\RR^2$}
-
 El siguiente teorema nos permite calcular ciertas integrales dobles realizando dos integrales simples iteradas.
 
 \begin{theorem}[Fubini] \index{Integral múltiple!Teo. Fubini}
@@ -2217,8 +2168,6 @@ $$ \iint_A f(x,y) dxdy = \int_a^b dx \int_{f(x)}^{g(x)} f(x,y) dy $$
 \begin{observation}
 Si $A$ es una región elemental tipo I y II, entonces puedo cambiar el orden de integración.
 \end{observation}
-
-\section{Teorema de cambio de variables}
 
 Primero lo enunciamos en $\RR^2$
 
@@ -2237,9 +2186,7 @@ $$ \displaystyle \iiint_{A=g(B)} f(x,y,z) dxdydz = \iiint_{B} f(g(u,v,w)) ||det(
 
 \end{theorem}
 
-\section{Coordenadas cartesianas y polares en $\RR^2$}
-
-Son los cambios de variables más utilizados en $\RR^2$
+Los cambios de variables más utilizados en $\RR^2$ son los siguientes
 
 \begin{definition}[Cartesianas]
 Las \textbf{coordenadas cartesianas} corresponde a la función identidad de $\RR^2$
@@ -2275,9 +2222,7 @@ Las líneas coordenadas son circunferencias con centro en el origen, y semirecta
 \end{center}
 \end{definition}
 
-\section{Coordenadas cartesianas, cilíndricas y esféricas en $\RR^3$}
-
-Son los cambios de variables más utilizados en $\RR^3$
+Son los cambios de variables más utilizados en $\RR^3$ son los siguientes:
 
 \begin{definition}[Cartesianas]
 Las \textbf{coordenadas cartesianas} corresponde a tomar la función identidad de $\RR^3$
@@ -2373,7 +2318,6 @@ Por lo tanto si la densidad de un objeto es menor que la densidad del agua, el o
 Calculemos la densidad $\rho = \frac{M}{V}$ del objeto.
 
 Si integramos la función densidad sobre la región $R$ nos va a dar la masa total del sólido 
-
 $M = \iiint_R \delta(x,y,z) dxdydz$
 
 Si integramos la función constante 1 sobre la región $R$ nos va a dar el volúmen total del sólido
@@ -2480,7 +2424,7 @@ y su determinante
 
 $det(Dh) = -x - y$
 
-en valor absuluto
+en valor absoluto
 
 $|det(Dh)| = x+y$
 
@@ -2498,8 +2442,6 @@ $= 2 \iint_U dudv = 2 Area(U) = 2 \cdot (1-0) \cdot (3-1) = 4$
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 \chapter{Integrales de Superficie y Flujo}
-
-\section{Definición para superficie paramétrica}
 
 \begin{definition}[Integral superficie] \index{Integral de superficie}
 Dada una superficie $\Sigma \in \RR^3$ con parametrización $ g: B \subseteq \RR^2 \to \RR^3$, y dado un campo escalar $f : A \subseteq \RR^3 \to \RR$ contínuo, tal que $\Sigma \in A^{\circ}$, definimos el diferencial de superficie escalar como
@@ -2525,7 +2467,8 @@ $$ \iint_\Sigma f \cdot ds = \iint_B f(g(u,v)) \cdot (g'_u(u,v) \wedge g'_v(u,v)
 En este caso decimos que se trata de la integral sobre la superficie $\Sigma$ en la orientación con vector normal $g'_u(u,v) \wedge g'_v(u,v)$.
 \end{definition}
 
-\section{Caso superficie gráfica de campo escalar}
+
+En el caso que la superficie sea gráfica de campo escalar:
 
 Sea $f: A \subset \RR^2 \to \RR$, su conjunto gráfica consiste en el conjunto 
 
@@ -2549,10 +2492,10 @@ y el diferencial de superficie escalar es
 
 $$ ds = \sqrt{1 + (f'_x)^2 + (f'_y)^2 }dxdy $$
 
-\section{Caso superficie definida implícitamente}
+
+En el caso que la superficie esté definida implícitamente:
 
 Sea el campo escalar $ G: A \subset \RR^3 \to \RR$, $ G \in C^1$ y supongamos la superficie $\Sigma$ corresponde al conjunto de nivel 0 de $G$.  Es decir es la superficie de ecuación 
-
 $$G(x,y,z) = 0$$ 
 
 y supongamos además que $G'_z(x,y,z) \neq 0$
@@ -2671,7 +2614,6 @@ Sea $ \delta: \RR^2 \to \RR$ contínua la densidad de masa.
 \end{tabular}
 \end{center}
 
-
 Ahora en $\RR^3$.  Veamos algunas fórmulas para el cálculo de masa, momentos y centro, sobre curvas en el espacio, regiones sólidas, y supercicies.
 
 Sea $ C \subset \RR^3$ una curva, $A \subseteq \RR^3$ una región sólida, y $\Sigma \subseteq \RR^3$ una superficie.
@@ -2763,9 +2705,7 @@ Dada una región elemental del espacio $H \subset \RR^3$, y su superficie fronte
 $$ \displaystyle \iint_{\Sigma^+ = \partial H} f \cdot ds = \iiint_H div(f) dxdydz $$
 \end{theorem}
 
-\section{Campos irrotacionales, solenoidales, y armónicos}
-
-\begin{definition}
+\begin{definition}[Irrot, solen, armónico]
 Sea $A \subset \RR^n$ un conjunto abierto.
 
 Un campo vectorial $f: A \subset \RR^3 \to \RR^3$, $ f \in C^1$ se dice \textbf{irrotacional} \index{Teoremas integrales!Irrotacional} si $ rot(f) = 0$

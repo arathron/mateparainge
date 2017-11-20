@@ -11,7 +11,7 @@
 % http://www.gnu.org/licenses/licenses.html
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+ 
 \part{Análisis en una variable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,7 +87,7 @@ y en ese caso escribimos
 $$ \displaystyle \lim_{x \to a} f(x) = L $$
 \end{definition}
 
-\enazul{Escribir sobre límites laterales, propiedades de límites, infinitésimos equivalentes}
+\enrojo{Escribir sobre límites laterales, propiedades de límites, infinitésimos equivalentes}
 
 \begin{theorem}[Cero por acotada] \label{cero_por_acotada}
 Sean $f,g:A \subseteq \RR \to \RR$, $a \in A'$.
@@ -96,6 +96,49 @@ Si $f$ es infinitésimo en $a$ (es decir $ \lim_{x \to a} f(x) = 0$), y $g$ es a
 
 $$ \lim_{x \to a} f(x)g(x) = 0 $$
 \end{theorem}
+
+
+\section{Asíntotas}
+
+
+\begin{definition}[Asíntotas]
+Sea $f: A \subseteq \RR \to \RR$
+
+\begin{itemize}
+\item Sea $x_0 \in A'$.  Si existe alguno de los siguientes límites 
+
+$\lim_{x \to x_0ˆ+} f(x) = \pm \infty$
+
+$\lim_{x \to x_0ˆ-} f(x) = \pm \infty$
+
+decimos que la recta $x = x_0$ es una \textbf{asíntota vertical de $f$}.
+
+
+\item Si existe alguno de los siguientes límites 
+
+$\lim_{x \to \pm \infty} f(x) = k \in \RR$ 
+
+decimos que $y = k$ es asíntota horizontal de $f$.
+
+
+\item Si existen $a,b \in \RR$, tales que existe algunos de los siguientes límites
+
+$\lim_{x \to \pm \infty} f(x) - (ax+b) = 0$ 
+
+decimos que $y = ax+b$ es asíntota oblicua de $f$.
+
+Para calcular $a$ y $b$ (si existen) primero se calcula el siguiente límite
+
+$ a = \lim_{x \to \pm \infty} \frac{f(x)}{x} $
+
+y luego conociendo $a$ se calcula el siguiente límite
+
+$ b = \lim_{x \to \pm \infty} f(x) - ax $
+
+\end{definition}
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -110,7 +153,7 @@ Demostrar que intervalo equivale a conexo.
 }
 
 \begin{theorem}[Bolzano]
-Sea $f : A \to \RR$ contínua en $[a,b] \subseteq A$, con $f(a) f(b) < 0$ (es decir tal que $f(a)$ y $f(b)$ tienen signo opuesto).
+Sea $f : A \subseteq \RR \to \RR$ contínua en $[a,b] \subseteq A$, con $f(a) f(b) < 0$ (es decir tal que $f(a)$ y $f(b)$ tienen signo opuesto).
 
 Entonces existe $c \in [a,b]$ tal que $f(c) = 0$ (es decir existe una raíz)
 \end{theorem}
@@ -131,6 +174,129 @@ En otras palabras, existe $c \in [a,b]$ tal que $f(c) = 0$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Funciones diferenciables}
+
+\begin{definition}[Derivada] \label{derivada}
+Una función $f : A \subset \RR \to \RR$ es derivable en $x_0 \in A^{\circ}$ si existe el siguiente límite
+
+$$ f'(x_0) = \lim_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h} $$
+
+En ese caso decimos que $f'(x_0)$ es la derivada de $f$ en $x_0$.
+\end{definition}
+
+\begin{definition}[Recta tangente]
+Sea $f : A \subset \RR \to \RR$ derivable en $x_0 \in A^{\circ}$.  Sea $y_0 = f(x_0)$
+
+Entonces la \textbf{recta tangente a $f$ en $x_0$} es
+
+$ y - y_0 = f'(x_0) (x - x_0)$
+
+Y la \textbf{recta normal a $f$ en $x_0$} es
+
+$ y - y_0 = \frac{-1}{f'(x_0)} (x - x_0)$
+\end{definition}
+
+\begin{observation}[Álgebra de deriv]
+
+Sean $f,g : A \subseteq \RR \to \RR$ funciones derivables.  
+
+Entonces
+
+$(f(x) \pm g(x))' = f'(x) \pm g'(x)$
+
+$(k f(x))' = k f'(x) $ para todo $k \in \RR$
+
+$(f(x) \cdot g(x))' = f'(x) g(x) + f(x) g'(x)$
+
+$(f(x) / g(x))' = \frac{ f'(x) g(x) - f(x) g'(x) }{ gˆ2(x) }$
+\end{observation}
+
+\begin{theorem}[Regla de la cadena] \label{regla_cadena} 
+
+Sean
+
+$ f : A \subset \RR \to \RR$ diferenciable en $x_0 \in A^{\circ}$
+
+$ g : B \subset \RR \to \RR$ diferenciable en $y_0 = f(x_0) \in B^{\circ}$
+
+tales que $f(A) \subseteq B$
+
+Entonces la función compuesta $h : A \to \RR$ es diferenciable en $x_0$, y además 
+
+$$ h'(x_0) = g'(f(x_0)) \cdot f'(x_0) $$
+\end{theorem} 
+
+Tabla de derivadas de algunas funciones
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$f(x)$ & $f'(x)$ \\
+\hline
+$k$ & $0$ \\
+\hline
+$xˆn$ & $n xˆ{n-1}$ \\
+\hline
+$eˆx$ & $eˆx$ \\
+\hline
+$\cos(x)$ & $-\sin(x)$ \\
+\hline
+$\sin(x)$ & $\cos(x)$ \\
+\hline
+$\tan(x)$ & $\frac{1}{\cosˆ2(x)}$ \\
+\hline
+$\arccos(x)$ & $\frac{-1}{ \sqrt{1 - xˆ2} }$ \\
+\hline
+$\arcsin(x)$ & $\frac{1}{ \sqrt{1 - xˆ2} }$ \\
+\hline
+$\arctan(x)$ & $\frac{1}{1 + xˆ2}$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\enrojo{Agregar mas funciones a la tabla.  Definir derivadas laterales, y punto anguloso.}
+
+El siguiente teorema se generaliza en Cálculo de varias variables (ver \ref{dif_impl_cont}).
+
+\begin{theorem}[Deriv impl. cont] \ref{deriv_impl_cont}
+Sea $ f : A \subset \RR \to \RR$ derivable en $ x_0 \in A^{\circ}$.
+
+Entonces $f$ es contínua en $x_0$.
+\end{theorem}
+
+\begin{proof}
+Como $f$ es derivable en $x_0$, existe
+
+$f'(x_0) = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}$
+
+Queremos calcular el siguiente límite
+
+$ \lim_{x \to x_0} f(x) - f(x_0)$
+
+$ = \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} (x - x_0)$
+
+$ = f'(x_0) 0 = 0$
+
+Luego
+
+$ \lim_{x \to x_0} f(x) = f(x_0)$
+
+es decir $f$ es contínua en $x_0$.
+\end{proof}
+
+\begin{definition}[Sucesivas]
+Sea $f:A \subseteq \RR \to \RR$.
+
+Sea $A_1 \subseteq A$ el conjunto de puntos donde $f$ es derivable.  Definimos la función derivada primera como $f' : A_1 \to \RR$, $x \to f'(x)$.
+
+Sea $A_2 \subseteq A_1$ el conjunto de puntos donde $f'$ es derivable.  Definimos la función derivada sucesiva segunda como $f'' : A_2 \to \RR$, $x \to f''(x)$.
+
+Siguiendo así, sea $A_k$ el conjunto de puntos donde $fˆ{(k-1)}$ es derivable.  Definimos la función \textbf{derivada sucesiva $k$-ésima} como $fˆ{(k)} : A_k \to \RR$, $x \to fˆ{(k)}(x)$
+
+Si $A$ abierto, decimos que \textbf{$f$ es clase $Cˆk$} y escribimos $f \in Cˆk$ si las derivadas hasta orden $k$ existen y son contínuas en $A$.
+\end{definition}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Aproximación de funciones por polinomios}
