@@ -134,11 +134,8 @@ $ a = \lim_{x \to \pm \infty} \frac{f(x)}{x} $
 y luego conociendo $a$ se calcula el siguiente límite
 
 $ b = \lim_{x \to \pm \infty} f(x) - ax $
-
+\end{itemize}
 \end{definition}
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -295,6 +292,31 @@ Siguiendo así, sea $A_k$ el conjunto de puntos donde $fˆ{(k-1)}$ es derivable.
 Si $A$ abierto, decimos que \textbf{$f$ es clase $Cˆk$} y escribimos $f \in Cˆk$ si las derivadas hasta orden $k$ existen y son contínuas en $A$.
 \end{definition}
 
+\begin{theorem}[Inversa]
+Sea $f : A \subseteq \RR \to \RR$ biyectiva y derivable con $f'(x) \neq 0$, $\forall x \in A$.
+
+Digamos que $y = f(x)$.
+
+Entonces $f^{-1}$ es derivable y $f^{-1}'(y) = \frac{1}{f'(x)}$
+
+\end{theorem}
+
+\begin{proof}
+
+\enrojo{Demostramos sólo la fórmula, asumiendo que $f^{-1}$ es derivable.}
+
+Como son inversas, tenemos que
+
+$f^{-1}(f(x)) = x$
+
+Aplicando la regla de la cadena
+
+$f^{-1}'(f(x)) f'(x) = 1$
+
+Es decir
+
+$f^{-1}'(y) = \frac{1}{f'(x)}$
+\end{proof}
 
 
 
