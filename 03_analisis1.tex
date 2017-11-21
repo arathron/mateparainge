@@ -107,9 +107,9 @@ Sea $f: A \subseteq \RR \to \RR$
 \begin{itemize}
 \item Sea $x_0 \in A'$.  Si existe alguno de los siguientes límites 
 
-$\lim_{x \to x_0ˆ+} f(x) = \pm \infty$
+$\lim_{x \to x_0^+} f(x) = \pm \infty$
 
-$\lim_{x \to x_0ˆ-} f(x) = \pm \infty$
+$\lim_{x \to x_0^-} f(x) = \pm \infty$
 
 decimos que la recta $x = x_0$ es una \textbf{asíntota vertical de $f$}.
 
@@ -204,7 +204,7 @@ $(k f(x))' = k f'(x) $ para todo $k \in \RR$
 
 $(f(x) \cdot g(x))' = f'(x) g(x) + f(x) g'(x)$
 
-$(f(x) / g(x))' = \frac{ f'(x) g(x) - f(x) g'(x) }{ gˆ2(x) }$
+$(f(x) / g(x))' = \frac{ f'(x) g(x) - f(x) g'(x) }{ g^2(x) }$
 \end{observation}
 
 \begin{theorem}[Regla de la cadena] \label{regla_cadena} 
@@ -231,21 +231,21 @@ $f(x)$ & $f'(x)$ \\
 \hline
 $k$ & $0$ \\
 \hline
-$xˆn$ & $n xˆ{n-1}$ \\
+$x^n$ & $n x^{n-1}$ \\
 \hline
-$eˆx$ & $eˆx$ \\
+$e^x$ & $e^x$ \\
 \hline
 $\cos(x)$ & $-\sin(x)$ \\
 \hline
 $\sin(x)$ & $\cos(x)$ \\
 \hline
-$\tan(x)$ & $\frac{1}{\cosˆ2(x)}$ \\
+$\tan(x)$ & $\frac{1}{\cos^2(x)}$ \\
 \hline
-$\arccos(x)$ & $\frac{-1}{ \sqrt{1 - xˆ2} }$ \\
+$\arccos(x)$ & $\frac{-1}{ \sqrt{1 - x^2} }$ \\
 \hline
-$\arcsin(x)$ & $\frac{1}{ \sqrt{1 - xˆ2} }$ \\
+$\arcsin(x)$ & $\frac{1}{ \sqrt{1 - x^2} }$ \\
 \hline
-$\arctan(x)$ & $\frac{1}{1 + xˆ2}$ \\
+$\arctan(x)$ & $\frac{1}{1 + x^2}$ \\
 \hline
 \end{tabular}
 \end{center}
@@ -254,7 +254,7 @@ $\arctan(x)$ & $\frac{1}{1 + xˆ2}$ \\
 
 El siguiente teorema se generaliza en Cálculo de varias variables (ver \ref{dif_impl_cont}).
 
-\begin{theorem}[Deriv impl. cont] \ref{deriv_impl_cont}
+\begin{theorem}[Deriv impl. cont] \label{deriv_impl_cont}
 Sea $ f : A \subset \RR \to \RR$ derivable en $ x_0 \in A^{\circ}$.
 
 Entonces $f$ es contínua en $x_0$.
@@ -287,9 +287,9 @@ Sea $A_1 \subseteq A$ el conjunto de puntos donde $f$ es derivable.  Definimos l
 
 Sea $A_2 \subseteq A_1$ el conjunto de puntos donde $f'$ es derivable.  Definimos la función derivada sucesiva segunda como $f'' : A_2 \to \RR$, $x \to f''(x)$.
 
-Siguiendo así, sea $A_k$ el conjunto de puntos donde $fˆ{(k-1)}$ es derivable.  Definimos la función \textbf{derivada sucesiva $k$-ésima} como $fˆ{(k)} : A_k \to \RR$, $x \to fˆ{(k)}(x)$
+Siguiendo así, sea $A_k$ el conjunto de puntos donde $f^{(k-1)}$ es derivable.  Definimos la función \textbf{derivada sucesiva $k$-ésima} como $f^{(k)} : A_k \to \RR$, $x \to f^{(k)}(x)$
 
-Si $A$ abierto, decimos que \textbf{$f$ es clase $Cˆk$} y escribimos $f \in Cˆk$ si las derivadas hasta orden $k$ existen y son contínuas en $A$.
+Si $A$ abierto, decimos que \textbf{$f$ es clase $C^k$} y escribimos $f \in C^k$ si las derivadas hasta orden $k$ existen y son contínuas en $A$.
 \end{definition}
 
 \begin{theorem}[Inversa]
@@ -297,7 +297,7 @@ Sea $f : A \subseteq \RR \to \RR$ biyectiva y derivable con $f'(x) \neq 0$, $\fo
 
 Digamos que $y = f(x)$.
 
-Entonces $f^{-1}$ es derivable y $f^{-1}'(y) = \frac{1}{f'(x)}$
+Entonces $f^{-1}$ es derivable y $(f^{-1})'(y) = \frac{1}{f'(x)}$
 
 \end{theorem}
 
@@ -311,17 +311,160 @@ $f^{-1}(f(x)) = x$
 
 Aplicando la regla de la cadena
 
-$f^{-1}'(f(x)) f'(x) = 1$
+$(f^{-1})'(f(x)) f'(x) = 1$
 
 Es decir
 
-$f^{-1}'(y) = \frac{1}{f'(x)}$
+$(f^{-1})'(y) = \frac{1}{f'(x)}$
 \end{proof}
+
+
+\begin{theorem}[Rolle]
+Sea $f : A \subseteq \RR \to \RR$ contínua en $[a,b] \subseteq A$ y derivable en $(a,b)$, y tal que $f(a) = f(b)$.
+
+Entonces, existe $c \in (a,b)$ tal que $f'(c) = 0$
+\end{theorem}
+
+El teorema de Rolle se puede generalizar en el teorema del valor medio, también conocido como teorema de Lagrange:
+
+\begin{theorem}[Valor medio]
+Sea $f : A \subseteq \RR \to \RR$ contínua en $[a,b] \subseteq A$ y derivable en $(a,b)$.
+
+Entonces, existe $c \in (a,b)$ tal que $f'(c) = \frac{ f(b) - f(a) }{ b - a }$
+\end{theorem}
+
+\begin{theorem}[Cauchy]
+Sea $f,g : A \subseteq \RR \to \RR$ continuas en $[a,b] \subseteq A$ y derivables en $(a,b)$.
+
+Entonces existe $c \in (a,b)$ tal que
+
+$(f(b) - f(a)) g'(c) = (g(b) - g(a)) f'(c) $
+
+En el caso que $g'(c) \neq 0$ y $g(b) - g(a) \neq 0$ podemos escribirlo como
+
+$ \frac{f'(c)}{g'(c)} = \frac{f(b) - f(a)}{g(b) - g(a)} $
+\end{theorem}
+
+\begin{theorem}[L'Hopital]
+Sea $f,g : A \subseteq \RR \to \RR$ continuas en $[a,b] \subseteq A$ y derivables en $(a,b)$.
+
+Sea $c \in (a,b)$ tal que $f(c) = g(c) = 0$, y $g'(x) \neq 0$ para $x \neq c$, y tal que exista el límite
+
+$ \lim_{x \to c} f'(x)/g'(x) = L$
+
+Entonces existe también el siguiente límite y vale lo mismo
+
+$ \lim_{x \to c} f(x)/g(x) = \lim_{x \to c} f'(x)/g'(x)$
+\end{theorem}
+
+\section{Extremos}
+
+\begin{definition}[Crítico] \label{punto_critico_estacionario}
+Sea $f : A \subseteq \RR \to \RR$, y sea $x_0 \in A$.
+
+Si bien $f$ no es derivable en $x_0$, o bien es derivable en $x_0$ pero $f'(x_0) = 0$, decimos que $x_0$ es \textbf{punto crítico}.
+
+En el segundo caso decimos además que es un \textbf{punto estacionario}.
+\end{definition}
+
+\begin{theorem}[Crecimiento]
+Sea $f : A \subseteq \RR \to \RR$, y sea $(a,b) \subseteq A$.
+
+Si $f'(x) > 0 \ \forall x \in (a,b)$, entonces $f$ es monótona creciente en $(a,b)$
+
+Si $f'(x) < 0 \ \forall x \in (a,b)$, entonces $f$ es monótona decreciente en $(a,b)$
+
+Si $f'(x) = 0 \ \forall x \in (a,b)$, entonces $f$ es constante en $(a,b)$
+\end{theorem}
+
+\begin{definition}[Concavidad]
+Sea $f : A \subseteq \RR \to \RR$, con $A$ convexo (es decir $A$ un intervalo).
+
+\begin{itemize}
+\item Decimos que $f$ es \textbf{cóncava} (o cóncava hacia abajo) si su hipografo
+
+$hyp(f) = \{ (x,u) \in A \times \RR : u \leq f(x) \}$
+
+es convexo.  
+
+Equivaléntemente si $\forall x,y \in A$, $\forall \alpha \in [0,1]$
+
+$$ f((1-\alpha)x + \alpha y) \geq (1-\alpha)f(x) + \alpha f(y) $$
+
+O sea el segmento une $(x,f(x))$ con $(y,f(y))$ queda abajo de la gráfica de la función.
+
+\item Decimos que $f$ es \textbf{convexa} (o cóncava hacia arriba) si el epigrafo
+
+$epi(f) = \{ (x,u) \in A \times \RR : u \geq f(x) \}$
+
+es convexo.
+
+Equivaléntemente si $\forall x,y \in A$, $\forall \alpha \in [0,1]$
+
+$$ f((1-\alpha)x + \alpha y) \leq (1-\alpha)f(x) + \alpha f(y) $$
+
+O sea el segmento une $(x,f(x))$ con $(y,f(y))$ queda arriba de la gráfica de la función.
+
+\item Dado $x_0 \in A$, el punto $(x_0, f(x_0))$ es un \textbf{punto de inflexión} de $f$ si la gráfica de $f$ cambia de concavidad en dicho punto.
+\end{itemize}
+\end{definition}
+
+\begin{observation}[Inflexión]
+Sea $f : (a,b) \subseteq \RR \to \RR$ derivable.  
+
+\begin{itemize}
+\item Entonces $(x_0,f(x_0))$ es punto de inflexión sii $f'$ tiene un extremo aislado en $x_0$.  Es decir existe un entorno tal que $x_0$ es el único punto tal que $f'$ tiene un extremo relativo.
+\item Si $x_0$ produce punto de inflexión entonces si $f''(x_0)$ existe, es cero.
+\item Si $f'(x) = 0 \ \forall x \in (a,b)$, entonces $f$ es constante en $(a,b)$
+\item Si además $f''$ existe en $(a,b)$ entonces:
+
+\begin{itemize}
+\item \subitem Si $f''(x) > 0 \ \forall x \in (a,b)$, entonces $f$ es cóncava hacia arriba en $(a,b)$
+\item \subitem Si $f''(x) < 0 \ \forall x \in (a,b)$, entonces $f$ es cóncava hacia abajo en $(a,b)$
+\end{itemize}
+\end{itemize}
+\end{observation}
+
+\section{Estudio de funciones}
+
+Para realizar el estudio completo de una función se deben analizar los siguientes conceptos, para finalmente realizar una interpretación gráfica de la función.
+
+\begin{itemize}
+\item dominio
+\item ceros
+\item paridad
+\item asíntotas
+\item máximos y mínimos
+\item puntos de inflexión 
+\item intervalos de monotonía
+\item intervalos de concavidad 
+\item interpretación gráfica
+\end{itemize}
+
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Aproximación de funciones por polinomios}
+
+\begin{definition}[Taylor]
+Sea $f : A \subseteq \RR \to \RR$, $k$ veces derivable en $x_0 \in A^\circ$.  
+
+Definimos el polinomio de Taylor de orden $k$ de $f$ en $x_0$ como
+
+$P(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2!}f''(x_0)(x-x_0)^2 + \ldots + \frac{1}{k!}f^{(k)}(x_0)(x-x_0)^k $
+\end{definition}
+
+\begin{theorem}[Taylor]
+Sea $f : A \subseteq \RR \to \RR$, $k$ veces derivable en $x_0 \in A^\circ$.  
+
+Sea $P$ el polinomio de Taylor de orden $k$ de $f$ en $x_0$.
+
+Entonces
+
+$ \lim_{x \to x_0} \frac{f(x) - P(x)}{ |x - x_0|^k } = 0 $
+\end{theorem}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\chapter{Integral indefinida}
@@ -334,6 +477,49 @@ $f^{-1}'(y) = \frac{1}{f'(x)}$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Sucesiones, series numéricas y funcionales}
+
+El siguiente teorema es útil para probar la convergencia de ciertas sucesiones:
+
+\begin{theorem}[D'Alembert impl. Cauchy]
+Sea $(a_n)_{n \in \NN}$ sucesión.
+
+Si $\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = L$
+
+Entonces $\lim_{n \to \infty} \sqrt[n]{a_n} = L$.
+\end{theorem}
+
+
+
+Veamos ahora el criterio de D'Alembert (ratio test) para series
+
+\begin{theorem}[D'Alembert]
+Sea la serie $\sum_{n = 1}^\infty a_n$, y sea 
+
+$L = \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|$
+
+Si $L < 1$ la serie converge absolutamente.
+
+Si $L > 1$ la serie diverge.
+
+Si $L = 1$ o el límite no existe, no se sabe nada.
+\end{theorem}
+
+Veamos ahora el criterio de la raíz, también conocido como criterio de Cauchy
+
+\begin{theorem}[Cauchy]
+Sea la serie $\sum_{n = 1}^\infty a_n$, y sea 
+
+$L = \lim_{n \to \infty} \sqrt[n]{a_n}$
+
+Si $L < 1$ la serie converge absolutamente.
+
+Si $L > 1$ la serie diverge.
+
+Si $L = 1$ o el límite no existe, no se sabe nada.
+\end{theorem}
+
+
+
 
 
 
